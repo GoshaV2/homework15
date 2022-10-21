@@ -4,6 +4,65 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Car {
+    public static class Key {
+        private boolean hasRemoteEngineStart;
+        private boolean hasKeylessEntry;
+
+        public Key(boolean hasRemoteEngineStart, boolean hasKeylessEntry) {
+            this.hasRemoteEngineStart = hasRemoteEngineStart;
+            this.hasKeylessEntry = hasKeylessEntry;
+        }
+
+        public boolean isHasRemoteEngineStart() {
+            return hasRemoteEngineStart;
+        }
+
+        public boolean isHasKeylessEntry() {
+            return hasKeylessEntry;
+        }
+
+        @Override
+        public String toString() {
+            return "Key{" +
+                    "hasRemoteEngineStart=" + hasRemoteEngineStart +
+                    ", hasKeylessEntry=" + hasKeylessEntry +
+                    '}';
+        }
+    }
+
+    public static class Insurance {
+        private int yearOfEnding;
+        private double cost;
+        private String numberInsurance;
+
+        public Insurance(int yearOfEnding, double cost, String numberInsurance) {
+            this.yearOfEnding = yearOfEnding > 0 ? yearOfEnding : 2000;
+            this.cost = cost <= 0 ? 1 : cost;
+            if (numberInsurance.length() == 9) {
+                this.numberInsurance = numberInsurance;
+            } else {
+                this.numberInsurance = "Номер страховки некорректный!";
+                System.out.println("Номер страховки некорректный!");
+            }
+
+        }
+
+        public void checkYearOfEnding(int currentYear) {
+            if (currentYear > yearOfEnding) {
+                System.out.println("срочно ехать оформлять новую страховку");
+            }
+        }
+
+        @Override
+        public String toString() {
+            return "Insurance{" +
+                    "yearOfEnding=" + yearOfEnding +
+                    ", cost=" + cost +
+                    ", numberInsurance='" + numberInsurance + '\'' +
+                    '}';
+        }
+    }
+
     private String brand;
     private String model;
     private double volumeEngine;
@@ -23,8 +82,8 @@ public class Car {
         this.country = country == null || country.equals("") ? "default" : country;
         this.typeBody = typeBody == null || typeBody.equals("") ? "default" : typeBody;
         this.countPlace = countPlace <= 0 ? 1 : countPlace;
-        this.volumeEngine =1.5;
-        this.color ="белый" ;
+        this.volumeEngine = 1.5;
+        this.color = "белый";
         this.transmission = "механика";
         this.regNumber = "нету номера";
         this.typeRubber = "летняя";
@@ -116,64 +175,6 @@ public class Car {
             typeRubber = "летняя";
         } else {
             typeRubber = "летняя";
-        }
-    }
-
-    public static class Key{
-        private boolean hasRemoteEngineStart;
-        private boolean hasKeylessEntry;
-
-        public Key(boolean hasRemoteEngineStart, boolean hasKeylessEntry) {
-            this.hasRemoteEngineStart = hasRemoteEngineStart;
-            this.hasKeylessEntry = hasKeylessEntry;
-        }
-
-        public boolean isHasRemoteEngineStart() {
-            return hasRemoteEngineStart;
-        }
-
-        public boolean isHasKeylessEntry() {
-            return hasKeylessEntry;
-        }
-
-        @Override
-        public String toString() {
-            return "Key{" +
-                    "hasRemoteEngineStart=" + hasRemoteEngineStart +
-                    ", hasKeylessEntry=" + hasKeylessEntry +
-                    '}';
-        }
-    }
-    public static class Insurance{
-        private int yearOfEnding;
-        private double cost;
-        private String numberInsurance;
-
-        public Insurance(int yearOfEnding, double cost, String numberInsurance) {
-            this.yearOfEnding = yearOfEnding>0?yearOfEnding:2000;
-            this.cost = cost<=0?1:cost;
-            if(numberInsurance.length()==9){
-                this.numberInsurance=numberInsurance;
-            }else{
-                this.numberInsurance="Номер страховки некорректный!";
-                System.out.println("Номер страховки некорректный!");
-            }
-
-        }
-
-        public void checkYearOfEnding(int currentYear){
-            if(currentYear>yearOfEnding){
-                System.out.println("срочно ехать оформлять новую страховку");
-            }
-        }
-
-        @Override
-        public String toString() {
-            return "Insurance{" +
-                    "yearOfEnding=" + yearOfEnding +
-                    ", cost=" + cost +
-                    ", numberInsurance='" + numberInsurance + '\'' +
-                    '}';
         }
     }
 

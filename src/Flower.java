@@ -10,7 +10,7 @@ public class Flower {
         flowerColor = "white";
         country = "Russia";
         cost = 1;
-        lifeSpan=3;
+        lifeSpan = 3;
     }
 
     public Flower(String flowerColor, double cost, int lifeSpan) {
@@ -23,7 +23,7 @@ public class Flower {
         this.flowerColor = flowerColor;
         this.country = country;
         this.cost = trueCost(cost);
-        lifeSpan=3;
+        lifeSpan = 3;
     }
 
     public Flower(String flowerColor, String country, double cost, int lifeSpan) {
@@ -72,11 +72,12 @@ public class Flower {
             return 1;
         }
     }
-    private int trueLifeSpan(int lifeSpan){
-        return lifeSpan>0 ? lifeSpan : 3;
+
+    private int trueLifeSpan(int lifeSpan) {
+        return lifeSpan > 0 ? lifeSpan : 3;
     }
 
-    public void printInfo(){
-        System.out.printf(flowerColor+" обыкновенная из "+country+", стоимость штуки – "+"%.2f"+" рублей \n",cost);
+    public void printInfo() {
+        System.out.printf(flowerColor + " обыкновенная из " + country + ", стоимость штуки – " + "%.2f" + " рублей \n", cost);
     }
 }

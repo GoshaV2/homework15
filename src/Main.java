@@ -40,10 +40,10 @@ public class Main {
     }
 
     private static void carTask() {
-        Car bmw=new Car("bmw","amg",2000,"German","",4);
+        Car bmw = new Car("bmw", "amg", 2000, "German", "", 4);
         bmw.setRegNumber("t100yy123");
-        Car.Key key=new Car.Key(true,true);
-        Car.Insurance insurance=new Car.Insurance(2025,2332,"123456789");
+        Car.Key key = new Car.Key(true, true);
+        Car.Insurance insurance = new Car.Insurance(2025, 2332, "123456789");
         insurance.checkYearOfEnding(2023);
         insurance.checkYearOfEnding(2027);
         System.out.println(bmw);
